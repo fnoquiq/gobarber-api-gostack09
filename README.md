@@ -43,32 +43,32 @@
 
 - Segue abaixo a lista de rotas disponíveis pela api GOBARBER
 
-#### Sessions
+#### Sessions: ```BASE_URL/sessions```
 
-  **(POST)** *Create* -> Esta rota é usada para fazer a autenticação com a API e dela será retornada uma token bearer, que sera usada nas rotas que possuirem **@token_auth**.
+  - **(POST)** *Create* -> Esta rota é usada para fazer a autenticação com a API e dela será retornada uma token bearer, que sera usada nas rotas que possuirem **@token_auth**.
 
-#### Users
+#### Users: ```BASE_URL/users```
 
-  **(POST)** *Create* -> Esta rota rota é usada para realizar o cadastramento de usuários
+  - **(POST)** *Create* -> Esta rota rota é usada para realizar o cadastramento de usuários
   
-  **(PUT)** *Update* @token_auth -> Esta rota pode ser usada para editar informações básicas do usuário, como também para alterar a senha e linkar uma foto de avatar (desde que a foto de avatar já tenha sido criada no servidor).
+  - **(PUT)** *Update* @token_auth -> Esta rota pode ser usada para editar informações básicas do usuário, como também para alterar a senha e linkar uma foto de avatar (desde que a foto de avatar já tenha sido criada no servidor).
 
-#### Schedule
+#### Schedule: ```BASE_URL/schedule```
 
-  **(GET)** *List* @token_auth -> Esta rota é usada para retornar os agendamentos do provider logado
+  - **(GET)** *List* @token_auth -> Esta rota é usada para retornar os agendamentos do provider logado
 
-#### Appointments
+#### Appointments: ```BASE_URL/appointments```
 
-  **(POST)** *Create* @token_auth -> Esta rota é usada para cadastramento de agendamentos
+  - **(POST)** *Create* @token_auth -> Esta rota é usada para cadastramento de agendamentos
   
-  **(GET)** *List* @token_auth -> Esta rota é usada para listar os agendamentos
+  - **(GET)** *List* @token_auth -> Esta rota é usada para listar os agendamentos
 
-#### Provider
+#### Provider: ```BASE_URL/provider```
 
-  **(GET)** *List* @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço
+  - **(GET)** *List* @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço
 
-#### Files
+#### Files: ```BASE_URL/files```
 
-  **(POST)** *Create* @token_auth -> Esta rota é usada para servir de upload de avatar do usuário, que posteriormente pode ser linkada na edição do usuário com o ID deste.
+  - **(POST)** *Create* @token_auth -> Esta rota é usada para servir de upload de avatar do usuário, que posteriormente pode ser linkada na edição do usuário com o ID deste.
   
 ---
