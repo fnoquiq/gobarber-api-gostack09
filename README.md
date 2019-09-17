@@ -28,14 +28,16 @@
 ---
 
 ### INSTALAÇÃO:
- 
+
 - Instale o [yarn](https://yarnpkg.com/en/docs/install#debian-stable) e o [nodeJS](https://nodejs.org/en/download/)
 - Primeiramente você precisará ter o [docker](https://www.docker.com/get-started) instalado em sua máquina.
-- Fazer a instalação do DB, pelo terminal usando `sudo docker run --name database -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres`.
-- Criar uma database com o nome "gobarber". Obs: Recomendo o uso do [postbird](https://electronjs.org/apps/postbird) para fazer a criação do banco
-- No projeto usar `yarn install` para instalar todas as dependências do projeto.
-- Além disso, `yarn sequelize db:migrate` , para criar a base de dados.
-- Após, executar `yarn dev` para iniciar a aplicação.
+- Nesta aplicação é necessário o uso de dois bancos de dados, sendo eles o Postgres e o MongoDB, para rodar o container, basta executar pelo terminal:
+- Para o container do Postgres: `sudo docker run --name postgresbarber -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres`.
+- Para o container do MongoDB: `sudo docker run --name mongobarber -p 27017:27017 -d -t mongo`.
+- Criar uma database no Postgres com o nome "gobarber". Obs: Recomendo o uso do [postbird](https://electronjs.org/apps/postbird) para fazer a criação do banco.
+- No projeto usar `yarn install` para instalar todas as dependências.
+- Além disso, `yarn sequelize db:migrate` , para estruturar a base de dados.
+- Após, executar `yarn dev` para levantar a aplicação.
 
 ---
 
@@ -43,32 +45,32 @@
 
 - Segue abaixo a lista de rotas disponíveis pela api GOBARBER
 
-#### Sessions: ```BASE_URL/sessions```
+#### Sessions: `BASE_URL/sessions`
 
-  - **(POST)** *Create* -> Esta rota é usada para fazer a autenticação com a API e dela será retornada uma token bearer, que sera usada nas rotas que possuirem **@token_auth**.
+- **(POST)** _Create_ -> Esta rota é usada para fazer a autenticação com a API e dela será retornada uma token bearer, que sera usada nas rotas que possuirem **@token_auth**.
 
-#### Users: ```BASE_URL/users```
+#### Users: `BASE_URL/users`
 
-  - **(POST)** *Create* -> Esta rota rota é usada para realizar o cadastramento de usuários
-  
-  - **(PUT)** *Update* @token_auth -> Esta rota pode ser usada para editar informações básicas do usuário, como também para alterar a senha e linkar uma foto de avatar (desde que a foto de avatar já tenha sido criada no servidor).
+- **(POST)** _Create_ -> Esta rota rota é usada para realizar o cadastramento de usuários
 
-#### Schedule: ```BASE_URL/schedule```
+- **(PUT)** _Update_ @token_auth -> Esta rota pode ser usada para editar informações básicas do usuário, como também para alterar a senha e linkar uma foto de avatar (desde que a foto de avatar já tenha sido criada no servidor).
 
-  - **(GET)** *List* @token_auth -> Esta rota é usada para retornar os agendamentos do provider logado
+#### Schedule: `BASE_URL/schedule`
 
-#### Appointments: ```BASE_URL/appointments```
+- **(GET)** _List_ @token_auth -> Esta rota é usada para retornar os agendamentos do provider logado
 
-  - **(POST)** *Create* @token_auth -> Esta rota é usada para cadastramento de agendamentos
-  
-  - **(GET)** *List* @token_auth -> Esta rota é usada para listar os agendamentos
+#### Appointments: `BASE_URL/appointments`
 
-#### Provider: ```BASE_URL/provider```
+- **(POST)** _Create_ @token_auth -> Esta rota é usada para cadastramento de agendamentos
 
-  - **(GET)** *List* @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço
+- **(GET)** _List_ @token_auth -> Esta rota é usada para listar os agendamentos
 
-#### Files: ```BASE_URL/files```
+#### Provider: `BASE_URL/provider`
 
-  - **(POST)** *Create* @token_auth -> Esta rota é usada para servir de upload de avatar do usuário, que posteriormente pode ser linkada na edição do usuário com o ID deste.
-  
+- **(GET)** _List_ @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço
+
+#### Files: `BASE_URL/files`
+
+- **(POST)** _Create_ @token_auth -> Esta rota é usada para servir de upload de avatar do usuário, que posteriormente pode ser linkada na edição do usuário com o ID deste.
+
 ---
