@@ -10,20 +10,43 @@
 
 ### Ferramentas utilizadas:
 
-- Yarn
-- Express
-- Sequelize {sequelize, sequelize-cli, pg, pg-hstore}
-- Husky
-- ESLint
-- Prettier
-- Bcryptjs
-- Date-fns
-- Jsonwebtoken
-- Multer
-- Yup
-- Nodemon
-- Sucrase
-- VSCode
+- NodeJS;
+- Yarn;
+- VSCode.
+
+### Dependências utilizadas:
+
+```
+Produção: {
+"bcryptjs": "^2.4.3",
+"date-fns": "^2.0.0-beta.5",
+"express": "^4.17.1",
+"express-handlebars": "^3.1.0",
+"jsonwebtoken": "^8.5.1",
+"mongoose": "^5.7.1",
+"multer": "^1.4.2",
+"nodemailer": "^6.3.0",
+"nodemailer-express-handlebars": "^3.1.0",
+"pg": "^7.12.1",
+"pg-hstore": "^2.3.3",
+"sequelize": "^5.18.4",
+"yup": "^0.27.0"
+}
+```
+
+```
+Desenvolvimento: {
+"eslint": "^6.3.0",
+"eslint-config-airbnb-base": "^14.0.0",
+"eslint-config-prettier": "^6.3.0",
+"eslint-plugin-import": "^2.18.2",
+"eslint-plugin-prettier": "^3.1.0",
+"nodemon": "^1.19.2",
+"prettier": "^1.18.2",
+"sequelize-cli": "^5.5.1",
+"sucrase": "^3.10.1"
+}
+```
 
 ---
 
@@ -44,7 +67,7 @@
 
 ### Rotas das API:
 
-- Segue abaixo a lista de rotas disponíveis pela api GOBARBER
+- Segue abaixo a lista de rotas disponíveis pela api GOBARBER.
 
 #### Sessions: `BASE_URL/sessions`
 
@@ -52,26 +75,34 @@
 
 #### Users: `BASE_URL/users`
 
-- **(POST)** _Create_ -> Esta rota rota é usada para realizar o cadastramento de usuários
+- **(POST)** _Create_ -> Esta rota rota é usada para realizar o cadastramento de usuários.
 
 - **(PUT)** _Update_ @token_auth -> Esta rota pode ser usada para editar informações básicas do usuário, como também para alterar a senha e linkar uma foto de avatar (desde que a foto de avatar já tenha sido criada no servidor).
 
 #### Schedule: `BASE_URL/schedule`
 
-- **(GET)** _List_ @token_auth -> Esta rota é usada para retornar os agendamentos do provider logado
+- **(GET)** _List_ @token_auth -> Esta rota é usada para retornar os agendamentos do provider logado.
 
 #### Appointments: `BASE_URL/appointments`
 
-- **(POST)** _Create_ @token_auth -> Esta rota é usada para cadastramento de agendamentos
+- **(POST)** _Create_ @token_auth -> Esta rota é usada para cadastramento de agendamentos.
 
-- **(GET)** _List_ @token_auth -> Esta rota é usada para listar os agendamentos
+- **(GET)** _List_ @token_auth -> Esta rota é usada para listar os agendamentos.
+
+- **(DELETE)** _Delete_ @token_auth -> Esta rota é usada para cancelar (não deletar) agendamentos.
 
 #### Provider: `BASE_URL/provider`
 
-- **(GET)** _List_ @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço
+- **(GET)** _List_ @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço.
 
 #### Files: `BASE_URL/files`
 
 - **(POST)** _Create_ @token_auth -> Esta rota é usada para servir de upload de avatar do usuário, que posteriormente pode ser linkada na edição do usuário com o ID deste.
+
+#### Notifications: `BASE_URL/notifications`
+
+- **(GET)** _List_ @token_auth -> Esta rota é usada para listar as notificações de um provider.
+
+- **(PUT)** _Update_ @token_auth -> Esta rota é usada para marcar uma notificação como lida
 
 ---
