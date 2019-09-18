@@ -88,6 +88,11 @@ class AppointmentController {
         .status(400)
         .json({ error: 'Appointment date is not available' });
     }
+    const user = await User.findByPk(req.userId);
+
+    if (user.equals(isProvider)) {
+      return res.status(400).json({ error: 'You are a provider and user' });
+    }
 
     const appointment = await Appointment.create({
       user_id: req.userId,
@@ -99,7 +104,6 @@ class AppointmentController {
      * Notify appointment provider
      */
 
-    const user = await User.findByPk(req.userId);
     const formattedDate = format(
       hourStart,
       "'dia' dd 'de' MMMM', às' H:mm'h'",
