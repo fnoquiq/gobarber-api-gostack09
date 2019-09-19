@@ -54,14 +54,17 @@ Desenvolvimento: {
 
 - Instale o [yarn](https://yarnpkg.com/en/docs/install#debian-stable) e o [nodeJS](https://nodejs.org/en/download/)
 - Primeiramente você precisará ter o [docker](https://www.docker.com/get-started) instalado em sua máquina.
-- Nesta aplicação é necessário o uso de dois bancos de dados, sendo eles o [PostgreSQL](https://www.postgresql.org/) e o [MongoDB](https://www.mongodb.com/), para rodar o container, basta executar pelo terminal:
-- Para o container do PostgreSQL: `sudo docker run --name postgresbarber -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres`.
-- Para o container do MongoDB: `sudo docker run --name mongobarber -p 27017:27017 -d -t mongo`.
+- Nesta aplicação é necessário o uso de três banco de dados, sendo eles o [PostgreSQL](https://www.postgresql.org/), o [MongoDB](https://www.mongodb.com/) e por fim, o [Redis](https://redis.io/). Para rodar os containers, basta executar pelo terminal os seguintes comandos:
+  - Para o container do PostgreSQL: `sudo docker run --name postgresbarber -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres`;
+  - Para o container do MongoDB: `sudo docker run --name mongobarber -p 27017:27017 -d -t mongo`;
+  - Para o container do Redis: `sudo docker run --name redisbarber -p 6379:6379 -d -t redis:alpine`.
 - Criar uma database no PostgreSQL com o nome "gobarber". Obs: Recomendo o uso do [postbird](https://electronjs.org/apps/postbird) para fazer a criação do banco e visualização dos dados.
 - Já para o MongoDB, o banco é criado automaticamente pela aplicação com o nome de gobarber, porém recomendo o uso do [MongoDB Compass](https://www.mongodb.com/products/compass) para visualização dos dados no banco
 - No projeto usar `yarn install` para instalar todas as dependências.
 - Além disso, `yarn sequelize db:migrate` , para estruturar a base de dados.
-- Após, executar `yarn dev` para levantar a aplicação.
+- Após, levantar a aplicação com os seguintes comandos:
+  - Executar `yarn dev` para levantar a **API**;
+  - Executar `yarn queue` para levantar **fila**.
 
 ---
 
