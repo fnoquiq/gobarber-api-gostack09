@@ -1,5 +1,6 @@
 export default {
-  host: 'localhost',
-  port: '27017',
-  database: 'gobarber',
+  driver: 'mongodb',
+  host: process.env.MONGO_HOST,
+  port: process.env.MONGO_PORT,
+  database: process.env.MONGO_NAME,
 };

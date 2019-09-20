@@ -27,7 +27,7 @@ class Database {
 
   mongo() {
     this.mongoConnection = mongoose.connect(
-      `mongodb://${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
+      `${mongoConfig.driver}://${mongoConfig.host}:${mongoConfig.port}/${mongoConfig.database}`,
       { useNewUrlParser: true, useFindAndModify: true }
     );
   }
