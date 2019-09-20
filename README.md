@@ -98,6 +98,10 @@ Desenvolvimento: {
 
 - **(GET)** _List_ @token_auth -> Esta rota é usada para listar todos os usuários que são prestadores de serviço.
 
+  #### Available: `BASE_URL/providers/:providerId/available`
+
+  - **(GET)** _List_ @token_auth -> Esta rota é usada para retornar os horários disponíveis do provider provider logado em uma determinada data.
+
 #### Files: `BASE_URL/files`
 
 - **(POST)** _Create_ @token_auth -> Esta rota é usada para servir de upload de avatar do usuário, que posteriormente pode ser linkada na edição do usuário com o ID deste.
