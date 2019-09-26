@@ -14,7 +14,8 @@ import routes from './routes';
 class App {
   constructor() {
     this.server = express();
-
+    
+    this.disable('x-powered-by');
     Sentry.init(sentryConfig);
 
     this.middlewares();
