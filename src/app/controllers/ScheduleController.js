@@ -28,6 +28,14 @@ class ScheduleController {
         },
         canceled_at: null,
       },
+      include: [
+        {
+          model: User,
+          as: 'user',
+          attributes: ['name'],
+        },
+      ],
+      order: ['date'],
     });
 
     return res.json(appointments);
