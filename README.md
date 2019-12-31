@@ -1,56 +1,8 @@
 <img src="https://s3.us-east-2.amazonaws.com/gobarber-img/logo.svg" height = "150"/>
 
-# APP GOBARBER
-
-- Api criado no bootcamp Rocketseat
-
-![Bootcamp](https://rocketseat.com.br/static/images/update/bootcamp.svg)
-
 ---
 
-### Ferramentas utilizadas:
-
-- NodeJS;
-- Yarn;
-- VSCode.
-
-### Dependências utilizadas:
-
-```
-Produção: {
-"bcryptjs": "^2.4.3",
-"date-fns": "^2.0.0-beta.5",
-"express": "^4.17.1",
-"express-handlebars": "^3.1.0",
-"jsonwebtoken": "^8.5.1",
-"mongoose": "^5.7.1",
-"multer": "^1.4.2",
-"nodemailer": "^6.3.0",
-"nodemailer-express-handlebars": "^3.1.0",
-"pg": "^7.12.1",
-"pg-hstore": "^2.3.3",
-"sequelize": "^5.18.4",
-"yup": "^0.27.0"
-}
-```
-
-```
-Desenvolvimento: {
-"eslint": "^6.3.0",
-"eslint-config-airbnb-base": "^14.0.0",
-"eslint-config-prettier": "^6.3.0",
-"eslint-plugin-import": "^2.18.2",
-"eslint-plugin-prettier": "^3.1.0",
-"nodemon": "^1.19.2",
-"prettier": "^1.18.2",
-"sequelize-cli": "^5.5.1",
-"sucrase": "^3.10.1"
-}
-```
-
----
-
-### INSTALAÇÃO:
+## :hammer: Configuração:
 
 - Instale o [yarn](https://yarnpkg.com/en/docs/install#debian-stable) e o [nodeJS](https://nodejs.org/en/download/)
 - Primeiramente você precisará ter o [docker](https://www.docker.com/get-started) instalado em sua máquina.
@@ -62,13 +14,28 @@ Desenvolvimento: {
 - Já para o MongoDB, o banco é criado automaticamente pela aplicação com o nome de gobarber, porém recomendo o uso do [MongoDB Compass](https://www.mongodb.com/products/compass) para visualização dos dados no banco
 - No projeto usar `yarn install` para instalar todas as dependências.
 - Além disso, `yarn sequelize db:migrate` , para estruturar a base de dados.
-- Após, levantar a aplicação com os seguintes comandos:
-  - Executar `yarn dev` para levantar a **API**;
-  - Executar `yarn queue` para levantar **fila**.
 
 ---
 
-### Rotas das API:
+## :horse_racing: Iniciar a aplicação:
+
+- O primeiro passo é reiniciar os containers do docker referentes ao PostgreSQL, MongoDB e Redis. Para isso basta executar no terminal `docker start postgresbarber mongobarber redisbarber`, conforme é mostrado abaixo:
+
+![restarting-docker](https://github.com/fnoquiq/gobarber-api/blob/master/.github/restarting-docker.gif)
+
+- Após, levantar a aplicação com os seguintes comandos:
+
+  - Executar `yarn dev` para levantar a **API**;
+
+  ![yarn-dev](https://github.com/fnoquiq/gobarber-api/blob/master/.github/yarn-dev.gif)
+
+  - Executar `yarn queue` para levantar **fila**.
+
+  ![yarn-queue](https://github.com/fnoquiq/gobarber-api/blob/master/.github/yarn-queue.gif)
+
+---
+
+### :dart: Rotas das API:
 
 - Segue abaixo a lista de rotas disponíveis pela api GOBARBER.
 
@@ -111,5 +78,13 @@ Desenvolvimento: {
 - **(GET)** _List_ @token_auth -> Esta rota é usada para listar as notificações de um provider.
 
 - **(PUT)** _Update_ @token_auth -> Esta rota é usada para marcar uma notificação como lida
+
+---
+
+## APP GOBARBER
+
+- Api criado no bootcamp da Rocketseat
+
+![Bootcamp](https://rocketseat.com.br/static/images/update/bootcamp.svg)
 
 ---
