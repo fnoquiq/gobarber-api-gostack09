@@ -6,6 +6,8 @@ import Appointment from '../models/Appointment';
 
 import Notification from '../schemas/Notification';
 
+import Cache from '../../lib/Cache';
+
 class CreateAppointmentService {
   async run({ provider_id, user_id, date }) {
     // Check if provider_id is a provider
@@ -22,7 +24,6 @@ class CreateAppointmentService {
     /**
      * Check for past dates
      */
-
     if (isBefore(hourStart, new Date())) {
       throw new Error('Past dates are not permited');
     }
@@ -30,7 +31,6 @@ class CreateAppointmentService {
     /**
      * Check date availability
      */
-
     const checkAvailability = await Appointment.findOne({
       where: {
         provider_id,
@@ -57,7 +57,6 @@ class CreateAppointmentService {
     /**
      * Notify appointment provider
      */
-
     const formattedDate = format(
       hourStart,
       "'dia' dd 'de' MMMM', às' H:mm'h'",
@@ -68,6 +67,11 @@ class CreateAppointmentService {
       content: `Novo agendamento de ${user.name} para ${formattedDate}`,
       user: provider_id,
     });
+
+    /**
+     * Invalidate Cache
+     */
+    await Cache.invalidatePrefix(`user:${user.id}:appointments`);
 
     return appointment;
   }
